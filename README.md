@@ -2,8 +2,7 @@
 
 A modern, real-time web application for registering and showcasing humble superheroes in our community. Built with Next.js, TypeScript, and Tailwind CSS.
 
-<img src="https://github.com/user-attachments/assets/708e52db-b148-45a5-a3d6-7f2f15c08eb5" alt="Image of superhero" width="400"/>
-
+<img src="docs/SuperHumbleHero.jpg" alt="Super Humble Hero" width="400"/>
 
 ## ✨ Features
 
@@ -65,6 +64,10 @@ A modern, real-time web application for registering and showcasing humble superh
    ```
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 📸 Mockup
+
+![Mockup of the Humble Superhero Registry application](docs/mockup.png)
 
 ## 📁 Project Structure
 
