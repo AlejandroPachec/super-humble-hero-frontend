@@ -2,7 +2,7 @@
 
 A modern, real-time web application for registering and showcasing humble superheroes in our community. Built with Next.js, TypeScript, and Tailwind CSS.
 
-![Image of a superhero](public/superHumbleHero.webp)
+![Image of a superhero](docs/superHumbleHero.webp)
 
 ## ✨ Features
 
