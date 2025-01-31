@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description:
     "A community of humble superheroes making the world a better place",
   keywords: ["superhero", "community", "humility", "registry"],
-  authors: [{ name: "Your Name" }],
+  authors: [{ name: "Alejandro Pacheco" }],
 };
 
 export default function RootLayout({
@@ -24,8 +24,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en' className={inter.className}>
-      <body>
+    <html lang='en' className={inter.className} suppressHydrationWarning>
+      <body className='dark:bg-gray-900 transition-colors duration-200'>
         <Providers>{children}</Providers>
       </body>
     </html>
