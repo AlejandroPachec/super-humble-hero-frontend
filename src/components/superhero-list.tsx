@@ -6,7 +6,8 @@ import useSWR from "swr";
 const fetcher = async (url: string) => {
   const res = await fetch(url);
   if (!res.ok) throw new Error("Failed to fetch superheroes");
-  return res.json();
+  const data = await res.json();
+  return data;
 };
 
 const getHumilityColor = (score: number) => {
@@ -26,26 +27,32 @@ export default function SuperheroList() {
     error,
     mutate,
   } = useSWR<Superhero[]>("/api/superheroes", fetcher, {
-    refreshInterval: 30000,
-    revalidateOnFocus: true,
-    dedupingInterval: 5000,
+    // Disable automatic revalidation since we're using WebSocket
+    revalidateOnFocus: false,
+    revalidateOnReconnect: false,
+    refreshInterval: 0,
+    // Increase deduping interval to prevent rapid refetches
+    dedupingInterval: 10000,
+    // Keep previous data while fetching new data
+    keepPreviousData: true,
   });
 
   // Initialize WebSocket connection
   useWebSocket({
     onSuperheroCreated: (newHero) => {
-      mutate(
-        (prev: Superhero[] | undefined) =>
-          prev
-            ? [...prev, newHero].sort(
-                (a, b) => b.humilityScore - a.humilityScore
-              )
-            : [newHero],
-        false
-      );
+      if (superheroes) {
+        const updatedHeroes = [...superheroes, newHero].sort(
+          (a, b) => b.humilityScore - a.humilityScore
+        );
+        // Update cache immediately and revalidate in background
+        mutate(updatedHeroes, { revalidate: false });
+      } else {
+        // If no previous data, just revalidate
+        mutate();
+      }
     },
     onSuperheroesUpdated: (updatedHeroes) => {
-      mutate(updatedHeroes, false);
+      mutate(updatedHeroes, { revalidate: false });
     },
   });
 
