@@ -2,6 +2,8 @@
 
 A modern, real-time web application for registering and showcasing humble superheroes in our community. Built with Next.js, TypeScript, and Tailwind CSS.
 
+![Image of a superhero](public/superHumbleHero.webp)
+
 ## ✨ Features
 
 - 🎯 Real-time updates using WebSocket
@@ -139,6 +141,15 @@ src/
 - SEO best practices
 - Responsive design patterns
 - Clean code architecture
+
+## 🤝 Collaboration
+
+I would collaborate with a teammate to improve or expand this task by:
+
+- Brainstorming cool styles and animations ideas for the UI
+- Adding more interactive elements to the UI
+- Checking together possible performance improvements
+- Considering changing the color palette to something more modern and colorful. Maybe asking for advice from a designer friend or teammate.
 
 ## 🔜 What I would do if I had more time
 
